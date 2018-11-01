@@ -1,6 +1,8 @@
 package com.sihui.seckill.dao;
 
+import com.sihui.seckill.entity.Seckill;
 import com.sihui.seckill.entity.SuccessKilled;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * @author sihui.sha
@@ -14,12 +16,12 @@ public interface SuccessKilledDao {
      * @param userPhone
      * @return 插入的行数
      */
-    int insertSuccessKilled(long seckillId, long userPhone);
+    int insertSuccessKilled(@Param("seckillId") long seckillId, @Param("userPhone") String userPhone);
 
     /**
      * 根据ID查询SuccessKilled并携带秒杀产品对象实体
      * @param seckillId
      * @return
      */
-    SuccessKilled queryByIdWithSeckill(long seckillId);
+    SuccessKilled queryByIdWithSeckill(@Param("seckillId") long seckillId, @Param("userPhone") String userPhone);
 }
